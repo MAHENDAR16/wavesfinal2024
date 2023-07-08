@@ -1,0 +1,244 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+.quote{
+	margin-top:140px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 90%;
+}
+.single_desc{
+	margin: 30px auto;
+	padding: 20px 5px;
+	display: flex;
+	width: 90%;
+	gap: 30px;
+}
+
+.single_desc_left{
+	flex-basis: 40%;
+	height: 500px;
+}
+
+.single_desc_left img{
+	width: 100%;
+	height: 600px;
+	background-size: cover;
+	background-position: center;
+}
+
+.single_desc_right p{
+	font-size: 1.2rem;
+	font-weight: 300;
+
+}
+.single_desc span{
+	height: 600px;
+	width: 10px;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+
+.single_desc_right{
+	background-color: rgba(255, 255 , 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+	flex:1;
+
+}
+
+.single_desc_right:hover{
+	background-color: rgba(255, 255 , 255, 0.3);
+	transform: translateY(-10px);
+}
+
+
+.single_desc_right button{
+	font-size: 1.3rem;
+    color: #111;
+    background-color: #fff;
+    padding: 10px;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+    margin-top: 5px;
+}
+
+.quote{
+	color: #fff;
+
+}
+
+
+@media only screen and (max-width:800px){
+	.single_desc{
+		flex-direction: column;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.single_desc span{
+		height: 5px;
+		width: 100%;
+
+		background-color: rgba(255, 255, 255, 0.6);
+	}
+
+
+	.single_desc_left img{
+		height: 400px;
+	}
+
+}
+
+
+
+.team_st{
+	font-weight: normal;
+	margin: 40px auto;
+    font-size: 2.4rem;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.team_st::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height:3px;
+    background-color:#fff;
+    bottom:-10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation:animate 4s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        width: 200px;
+    }
+    50%{
+        width: 300px;
+    }
+    100%{
+        width: 200px;
+    }
+}
+
+.alumni_group{
+	width:90%;
+	margin: 40px auto 40px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	gap:20px;
+
+}
+
+.single_team{
+	min-width: 270px;
+	backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	gap:14px;
+	padding: 20px;
+	font-size: 1.3rem;
+	width: 300px;
+	color: #fff;
+	flex-direction: column;
+    background: rgba(255, 255 , 255, 0.1);
+   	border-radius: 20px;
+   	transition: 0.5s;
+}
+
+.single_team h1{
+	font-size:1.5rem;
+}
+.single_team:hover{
+	transform: translateY(-15px);
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.single_team img{
+	width: 270px;
+	height: 270px;
+
+}
+@media only screen and (max-width:300px){
+
+	.single_desc_left img{
+		height: 200px;
+		width: 200px;
+	}
+	.single_desc_right p{
+		font-size: 0.8rem;
+	}
+
+}
+
+
+</style>
+<body>
+	<div class="quote">
+		<h1>
+			<i class="fa-solid fa-quote-left"></i>
+			Being an alumni is not just a title, but a lifelong commitment to the growth and success of the institution.
+			<i class="fa-solid fa-quote-right"></i>
+		</h1>
+
+	</div>
+	<div class="single_desc">
+		<div class="single_desc_left">
+			<img src = "{% static 'assets/images/qrcode.jpg' %}">
+		</div>
+		<span></span>
+		<div class="single_desc_right">
+			<h1>Alumni Sponsorship</h1>
+				<p>The running cost of an electric vehicle is much lower than an equivalent petrol or diesel vehicle. Electric vehicles use electricity to charge their batteries instead of using fossil fuels like petrol or diesel. Electric vehicles are more efficient, and that combined with the electricity cost means that charging an electric vehicle is cheaper than filling petrol or diesel for your travel requirements. Using renewable energy sources can make the use of electric vehicles more eco-friendly.</p>
+				<button><- Scan To Pay</button>
+				
+		</div>
+	</div>
+	<h1 class="team_st">OUR NOTABLE ALUMNI'S</h1>
+	<div class="alumni_group">
+	      	<div class="single_team">
+	      		<img src = "{% static 'assets/images/profile1.jpg' %}">
+	      		<h1>name</h1>
+	      		<p>designation</p>
+	      		
+	      	</div>
+
+	      	<div class="single_team">
+	      		<img src="{% static 'assets/images/profile1.jpg' %}">
+	      		<h1>Sneha Priya Reddy</h1>
+	      		<p>designation</p>
+	      		
+	      	</div>
+
+	      	<div class="single_team">
+	      		<img src = "{% static 'assets/images/profile1.jpg' %}">
+	      		<h1>name</h1>
+	      		<p>designation</p>
+	      		
+	      	</div>
+
+      
+	</div>
+</body>
+<script src="https://kit.fontawesome.com/fbf340fc9e.js" crossorigin="anonymous"></script>
+{% endblock %}

@@ -1,0 +1,271 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<style>
+	@media (max-width:2000px) {
+		.event-image{
+			height: 300px;
+		}
+	} 
+	@media (max-width: 1400px) {
+		.event-image{
+			height: 250px;
+		}
+	}
+	@media (max-width: 1350px) {
+		.event-image{
+			height: 240px;
+		}
+	}
+	@media (max-width: 1300px) {
+		.event-image{
+			height: 230px;
+		}
+	}
+	@media (max-width: 1250px) {
+		.event-image{
+			height: 220px;
+		}
+	}
+	@media (max-width: 1150px) {
+		.event-image{
+			height: 210px;
+		}
+	}
+	@media (max-width: 1100px) {
+		.event-image{
+			height: 200px;
+		}
+	}
+	@media (max-width: 1000px) {
+		.event-image{
+			height: 150px;
+		}
+	}
+	@media (max-width: 790px) {
+		.event-image{
+			height: 120px;
+		}
+	}
+	@media (max-width: 576px) {
+		.event-image{
+			height: auto;
+		}
+	}
+
+
+.whole_team{
+    width:90%;
+    margin: 25px auto;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+
+}
+
+	.box{
+    width: 300px;
+    cursor: pointer;
+    position: relative;
+}
+
+.box span{
+    display: block;
+    pointer-events: none;
+    /*when the below styling is used the small box can appear above the big box*/
+    /*position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+*/
+    z-index: 40;
+}
+
+.box span::before{
+    content: '';
+    position: absolute;
+    top:-20px;
+    left:-20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    /*background: linear-gradient(300deg, #03a9f4 , #ff0058 );*/
+    background: rgba(255, 255 , 255, 0.1);
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+}
+
+.box span::after{
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    background: rgba(255, 255 , 255, 0.1);
+
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+}
+@keyframes animate {
+    0%, 100%{
+
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+.content{
+    z-index: 10;
+    position: relative;
+    padding: 20px 40px;
+    background-color: rgba(255, 255 , 255, 0.05);
+    left: 0;
+    border-radius: 20px;
+    backdrop-filter: blur(0px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    gap: 5px;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+
+.content:hover{
+    transform: translateY(-10px);
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+.cover_i{
+
+    display: block;
+    width:220px;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10%;
+}
+
+.content h2{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: bold;
+}
+.content p{
+
+    font-size: 1.1rem;
+}
+.content a{
+    display: inline-block;
+    font-size: 1.1rem;
+    color: #111;
+    background-color: #fff;
+    padding: 10px;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+    margin-top: 5px;
+}
+
+.content a:hover{
+    opacity: 0.6;
+}
+
+
+</style>
+<link rel="stylesheet" href="{% static 'assets/css/theme-preview-page.css'%}">
+<script src="assets/js/theme-preview-page.js"></script>
+
+<body class="pa-theme-preview" >
+
+	<!-- Navigation Menu
+	================================================== -->
+	<a class="pa-mobile-main-logo" href="#"><img alt="" src="assets/images/logo-normal.png"></a>
+
+	<!-- Demo Selection Thumbnails
+	================================================== -->
+	<section id="the-content" class="tp-demo-select" >
+
+		<div class="container pa-ultracontainer text-center" >
+
+			<!-- Homepage Demo Selection -->
+			<div class="row">
+				<div class="col">
+					<div class="tp-spacer-l"></div>
+					<h2 class="tp-body-heading fadeInDelay03Duration10">
+						<strong>{{event_count}} PLUS +</strong>
+						{{categories}}
+					</h2>
+				</div>
+			</div>
+
+			<!--div class="tp-spacer-m"></div-->
+
+
+			<!--div class="event_box">
+				{% for event in events %}
+					 <div class="single_event">
+						<div class="event_no">
+							<h1>NT-1</h1>
+						</div>
+						<div class="event_img">
+							<img src="{{event.image.url}}">
+						</div>
+						<div class="event_card"></div>
+						 <div class="event_desc">
+							 <h2>{{event.event_name}}</h2>
+							  <p style = "color:#fff">{{event.one_liner_description}}</p>
+							 <a href="{{event.get_url}}">Learn More</a>
+						 </div>
+
+					</div>
+				{% endfor %}
+			</div-->
+			<div class="whole_team">
+				{% for event in events %}
+					<div class="box">
+						<span></span>
+						<div class="content">
+							<img src="{{event.image.url}}" class="cover_i">
+							<h2>{{event.event_name}}</h2>
+							<p>Date : {{event.date}}</p>
+
+							<a href="{{event.get_url}}">Read More</a>
+
+
+						</div>
+				   </div>
+				{% endfor %}
+			</div>
+
+		</div>
+
+
+	</section>
+	<!-- /.tp-demo-select -->
+
+
+
+</body>
+
+{% endblock %}

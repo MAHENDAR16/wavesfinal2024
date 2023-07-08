@@ -1,0 +1,298 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<!--link rel="stylesheet" href="{% static 'gallery/css/style.css'%}"-->
+<style>
+.gcontainer{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 60px 30px;
+}
+
+.gcontainer .sponsers_box{
+    position: relative;
+
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 50px;
+    transition: .5s;
+}
+
+.gcontainer .sponsers_box::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 50px;
+    width: 50%;
+
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: .5s;
+}
+
+/*
+.gcontainer .box::after{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-radius: 8px;
+    transform: skewX(15deg);
+    transition: .5s;
+    filter: blur(30px);
+
+}
+*/
+.gcontainer .sponsers_box:hover:before, .gcontainer .sponsers_box:hover:after{
+    transform: skew(0deg);
+    left: 20px;
+    width: calc(100% - 100px);/*to change the width when hovered.*/
+}
+
+.gcontainer .sponsers_box:nth-child(1):before,
+.gcontainer .sponsers_box:nth-child(1):after{
+    background: linear-gradient(315deg, #ffbc00, #ff0058);
+}
+
+.gcontainer .sponsers_box:nth-child(2):before,
+.gcontainer .sponsers_box:nth-child(2):after{
+    background: linear-gradient(315deg, #03a9f4, #ff0058);
+}
+
+.gcontainer .sponsers_box:nth-child(3):before,
+.gcontainer .sponsers_box:nth-child(3):after{
+    background: linear-gradient(315deg, #4dff03, #ff0058);
+}
+
+.gcontainer .sponsers_box span{
+    display: block;
+    /*THE BELOW POS ABSOLUTE AND THE TOP LEFT VALUES ARE IMP OTHERWISE THE SMALL BOX WILL GO BACK THE MAIN BOX*/
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    pointer-events: none;
+    z-index: 40;
+}
+
+.gcontainer .sponsers_box span::before{
+    content: '';
+    position: absolute;
+    top:0;
+    left:0;
+
+    border-radius: 8px;
+    opacity: 0;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    background: rgba(255, 255 , 255, 0.1);
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+}
+
+
+.gcontainer .sponsers_box:hover span::before{
+    top: -50px;
+    left:50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+@keyframes animate {
+    0%, 100%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+
+
+.gcontainer .sponsers_box span::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    opacity: 0;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    background: rgba(255, 255 , 255, 0.1);
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+    animation-delay: -1s;
+}
+
+
+.gcontainer .sponsers_box:hover span::after{
+
+    bottom: -50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+.gcontainer .sponsers_box .content{
+    z-index: 10;
+    position: relative;
+    padding: 20px 40px;
+    color: #fff !important;
+    background-color: rgba(255, 255 , 255, 0.05);
+    left: 0;
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+
+}
+
+
+.gcontainer .sponsers_box:hover .content{
+    left: -25px;
+    padding: 60px 40px;
+}
+
+
+.gcontainer .sponsers_box .content h2{
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+.gcontainer .sponsers_box .content p{
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.4rem;
+    color: #fff;
+}
+
+.gcontainer .sponsers_box .content button{
+    display: inline-block;
+    font-size: 1.1rem;
+    color: #111 !important;
+    background-color: #fff !important;
+    padding: 10px;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+    margin-top: 5px;
+}
+.gcontainer .sponsers_box .content button:hover {
+    opacity: 0.6;
+}
+
+.content .cover_i{
+    float: left;
+    margin-right: 20px;
+}
+
+.cover_i img{
+
+    display: block;
+    width:120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10%;
+}
+
+
+@media only screen and (max-width:400px){
+    .content{
+
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .gcontainer{
+        margin-top:70px;
+        gap: 60px;
+    }
+    .gcontainer .sponsers_box{
+        margin-bottom:50px;
+    }
+
+    .gcontainer .sponsers_box:hover span::before{
+        width: 45px;
+        height: 45px;
+        top: -70px;
+        left: -20px;
+
+    }
+    .gcontainer .sponsers_box:hover span::after{
+        width: 45px;
+        height: 45px;
+        bottom: -70px;
+    }
+
+    .gcontainer .sponsers_box:nth-child(1):before,
+.gcontainer .sponsers_box:nth-child(1):after{
+    background: none;
+}
+
+.gcontainer .sponsers_box:nth-child(2):before,
+.gcontainer .sponsers_box:nth-child(2):after{
+    background: none;
+}
+
+.gcontainer .sponsers_box:nth-child(3):before,
+.gcontainer .sponsers_box:nth-child(3):after{
+    background: none;
+   }
+}
+</style>
+<body>
+    <div class="gcontainer" >
+        <div class="sponsers_box">
+            <span></span>
+            <div class="content">
+                <h2>Title Sponsor</h2>
+                <div class= "cover_i"><img src="{% static 'assets/images/logo-normal.png' %}"></div>
+                <p>Lorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                <button>Read More</button>
+            </div>
+        </div>
+
+        <div class="sponsers_box">
+            <span></span>
+            <div class="content">
+                <h2>Title Sponsor</h2>
+                <div class=  "cover_i"><img src="{% static 'assets/images/logo-normal.png' %}"></div>
+                <p>Lorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="sponsers_box">
+            <span></span>
+            <div class="content">
+                <h2>Title Sponsor</h2>
+                <div class=  "cover_i"><img src="{% static 'assets/images/logo-normal.png' %}"></div>
+                <p>Lorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </div>
+     
+</body>
+
+{% endblock %}
