@@ -64,20 +64,24 @@
         </div>
        
         </div>
-      <div class="form-row">
+      <!--div class="form-row">
         <div class="col form-group">
           <label class="text-dark"  for="">Year</label>
           <input type="number" name="year" class="form-control text-secondary" required>
         </div>
         <div class="col form-group">
-          <label class="text-dark"  for="">Referral Code</label>
-          <input type="text" name="country" class="form-control text-secondary">
+          <label class="text-dark"  for="">Accomodation Required(Y/N)</label>
+          <input type="text" name="accomodation_required" class="form-control text-secondary" required>
+            <select name = "accomodation_required" class = "form-control">
+                <option value = "Yes">Yes</option>
+                <option value = "No" selected>No</option>
+            </select>
         </div>
         </div>
         <div class="form-row">
           <label class="text-dark"  for="">Note</label>
           <textarea name="note" rows="2" class="form-control text-secondary"></textarea>
-        </div>
+        </div-->
 
   </div>
 </div> <!-- card.// -->
@@ -179,11 +183,11 @@
       var date_of_birth = $("[name='date_of_birth']").val();
       var college = $("[name='college']").val();
       var Department = $("[name='department']").val();
-      var year = $("[name='year']").val();
-      var referral_code = $("[name='referral_code']").val();
+      //var year = $("[name='year']").val();
+     // var referral_code = $("[name='referral_code']").val();
       var token = $("[name='csrfmiddlewaretoken']").val();
 
-      if(first_name == "" || last_name == "" || email =="" || phone == "" || roll_number == "" || date_of_birth == "" || college == "" || Department == "" || year == ""){
+      if(first_name == "" || last_name == "" || email =="" || phone == "" || roll_number == "" || date_of_birth == "" || college == "" || Department == ""){
           swal("Alert","Required fields are mandatory","error");
           // alert('all fields are mandatory');
           return false;
@@ -196,14 +200,14 @@
               success: function (response){
                 console.log(response);
                 var options = {
-                "key": "rzp_test_HocVobzSGPm7aO", // Enter the Key ID generated from the Dashboard
+                "key": "rzp_test_mSU6xlohyg0P0l", // Enter the Key ID generated from the Dashboard
                 "amount":response.total_price * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
                 "currency": "INR",
-                "name": "Waves 2022",
-                "description": "Thankyou for Registering in WAVES",
-                "image": "{% static 'assets/images/logo-normal.png'%}",
+                "name": "Waves 2024",
+                "description": "Thank you for Registering in WAVES",
+                "image": "{% static 'assets/images/waves24_logo_black.png'%}",
                 // "order_id": "order_9A33XWu170gUtm", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                "handler": function (responseb){
+                "handler": function (responseb){ //responseb ->response from razorpay after payment is done
                     data = {
                       "first_name" : first_name,
                       "last_name" : last_name,
@@ -213,8 +217,8 @@
                       "date_of_birth":date_of_birth,
                       "college":college,
                       "Department":Department,
-                      "year":year,
-                      "referral_code":referral_code,
+                      //"year":year,
+                      //"referral_code":referral_code,
                       "payment_mode": "Paid by Razorpay",
                       "payment_id" : responseb.razorpay_payment_id,
                       "csrfmiddlewaretoken": token,

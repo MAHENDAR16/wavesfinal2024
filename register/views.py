@@ -30,7 +30,7 @@ def cart(request,total=0,quantity=0,cart_items=None):
             total += (cart_item.event.price * cart_item.quantity)
             quantity += cart_item.quantity
         
-        tax = (1 * total) / 100
+        tax = (2 * total) / 100
         grand_total = total + tax
     except ObjectDoesNotExist:
         pass
@@ -47,17 +47,23 @@ def cart(request,total=0,quantity=0,cart_items=None):
 
 def add_cart(request, product_id):
     current_user = request.user
-    event = Event.objects.get(id=product_id) #get the product
+    event = Event.objects.get(id=product_id)  # get the product
     # If the user is authenticated
     if current_user.is_authenticated:
         product_variation = []
-        #I HAVE REMOVED THIS----------------------------------------------------------------
-        #if request.method == 'POST':
-         #   for item in request.POST:
-          #      key = item
-           #     value = request.POST[key]
+        if request.method == 'POST':
+            for item in request.POST:
+                key = item
+                value = request.POST[key]
+
+                # try:
+                #     variation = Variation.objects.get(product=product, variation_category__iexact=key, variation_value__iexact=value)
+                #     product_variation.append(variation)
+                # except:
+                #     pass
+
         is_cart_item_exists = RegisterItem.objects.filter(event=event, user=current_user).exists()
-        '''if is_cart_item_exists:
+        if is_cart_item_exists:
             cart_item = RegisterItem.objects.filter(event=event, user=current_user)
             # ex_var_list = []
             id = []
@@ -79,20 +85,19 @@ def add_cart(request, product_id):
             # if len(product_variation) > 0:
             #     item.variations.clear()
             #     item.variations.add(*product_variation)
-            item.save()'''
-
-        if not is_cart_item_exists:
+            item.save()
+        else:
             cart_item = RegisterItem.objects.create(
-                event = event,
-                quantity = 1,
-                user = current_user,
+                event=event,
+                quantity=1,
+                user=current_user,
             )
             # if len(product_variation) > 0:
             #     cart_item.variations.clear()
             #     cart_item.variations.add(*product_variation)
             cart_item.save()
-        return redirect('register_event')#REDIRECTS TO MAIN DASHBOARD PAGE
-    # If the user is not authenticated
+        return redirect('register_event')
+    # If the user is not authenticated, can directly redirect to login page
     else:
         product_variation = []
         if request.method == 'POST':
@@ -106,12 +111,12 @@ def add_cart(request, product_id):
                 # except:
                 #     pass
 
-
         try:
-            cart = Register.objects.get(register_id=_cart_id(request)) # get the cart using the cart_id present in the session
+            cart = Register.objects.get(
+                register_id=_cart_id(request))  # get the cart using the cart_id present in the session
         except Register.DoesNotExist:
             cart = Register.objects.create(
-                register_id = _cart_id(request)
+                register_id=_cart_id(request)
             )
         cart.save()
 
@@ -128,7 +133,6 @@ def add_cart(request, product_id):
                 # ex_var_list.append(list(existing_variation))
                 id.append(item.id)
 
-
             # if product_variation in ex_var_list:
             #     # increase the cart item quantity
             #     index = ex_var_list.index(product_variation)
@@ -137,7 +141,6 @@ def add_cart(request, product_id):
             #     item.quantity += 1
             #     item.save()
 
-            
             item = RegisterItem.objects.create(event=event, quantity=1, register=cart)
             # if len(product_variation) > 0:
             #     item.variations.clear()
@@ -146,8 +149,8 @@ def add_cart(request, product_id):
         else:
             cart_item = RegisterItem.objects.create(
                 event=event,
-                quantity = 1,
-                register = cart,
+                quantity=1,
+                register=cart,
             )
             # if len(product_variation) > 0:
             #     cart_item.variations.clear()
@@ -182,7 +185,7 @@ def checkout(request,total=0,quantity=0,cart_items=None):
             total += (cart_item.event.price * cart_item.quantity)
             quantity += cart_item.quantity
         
-        tax = (1 * total) /100
+        tax = (2 * total) /100
         grand_total = total + tax
     except ObjectDoesNotExist:
         pass

@@ -7,7 +7,7 @@ class RegisterAdmin(admin.ModelAdmin):
     list_display = ('register_id','date_added')
 
 class RegisterItemAdmin(admin.ModelAdmin):
-    list_diplay = ('event','register','is_active')
+    list_display = ('user', 'event','register','is_active')
 
 admin.site.register(Register,RegisterAdmin)
 admin.site.register(RegisterItem,RegisterItemAdmin)

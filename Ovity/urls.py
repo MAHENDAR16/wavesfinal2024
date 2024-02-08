@@ -29,6 +29,7 @@ urlpatterns = [
     path('sponsers',views.sponsers,name='sponsers'),
     path('alumni', views.alumni, name='alumni'),
     path('miscellaneous', views.miscellaneous, name = 'misc'),
+    path('miscellaneous/hackathon', views.hackathon, name = 'hackathon'),
     path('accounts/',include('accounts.urls')),
     #Orders for my site
     path('my_orders/',include('my_orders.urls')),

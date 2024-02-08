@@ -11,13 +11,14 @@ $(document).ready(function () {
 	// -- START: Page Transitions and Preloader -- //
 
 	// Page Preloader - Part 1 (pre-insert)
-	$('body').addClass('pa-preloadable');
+	/*$('body').addClass('pa-preloadable');
 	$('body').prepend('<div class="pa-loader">' +
 		'<section class="warper"><div class="spinn" style="opacity: 0.24;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="preloader"><p class="hello"></p><div id="preloader"><div id="loader"></div></div></div></section>' +
 		'<section class="warper darker"><div class="spinn" style="opacity: 0.24;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></section>' +
-	'</div>');
+	'</div>');*/
 
 	// Page Transitions - Part 1
+
 	setTimeout(function(){
 		$('.pa-overlay').detach();
 	}, 340);
@@ -26,6 +27,7 @@ $(document).ready(function () {
 	}, 420);
 
 	// Page Preloader - Part 2
+
 	setTimeout(function(){
 		$('.warper').addClass('is-inactive');
 		$('.pa-loader').addClass('is-inactive');

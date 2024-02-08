@@ -6,21 +6,19 @@
 
 	<!-- Navigation Menu
 	================================================== -->
-	<a class="pa-mobile-main-logo" href="{% url 'home'%}"><img alt="" src="{% static 'assets/images/logo-normal.png'%}"></a>
+	<a class="pa-mobile-main-logo" href="{% url 'home'%}"><img alt="" src="{% static 'assets/images/waves24_logo_white.png'%}" style="transform: scale(0.8);"></a>
 
-	<nav id="main-nav"
-		 class="pa-menu navbar pa-navbar navbar-expand-lg navbar-dark bg-transparent static-top"
-		 style="z-index:100">
+	<nav id="main-nav" class="pa-menu navbar pa-navbar navbar-expand-lg navbar-dark bg-transparent static-top">
 
 		<!-- Desktop Menu Logo -->
-		<a class="navbar-brand" href="{% url 'home'%}"><img style="height: 100px; width: 100px; margin-left: 20px; padding-top: 10px; transform: scale(1.2);" alt="" src="{% static 'assets/images/logo-normal.png'%}"></a>
+		<a class="navbar-brand" href="{% url 'home'%}"><img style="height: 100px; width: 100px; margin-left: 20px; padding-top: 10px; transform: scale(1);" alt="" src="{% static 'assets/images/waves24_logo_white.png'%}"></a>
 
 		<!-- The Menu -->
 		<ul class="navbar-nav ml-auto">
 
 			<!-- Mobile Menu Logo (only use if "close" buttons are set to false in JS) -->
-			<li data-nav-custom-content class="custom-content pa-mobile-menu-logo"> 
-				<a class="pa-mobile-navbar-brand" href="{% url 'home'%}"><img alt="" src="{% static 'assets/images/logo-normal.png'%}"></a>
+			<li data-nav-custom-content class="custom-content pa-mobile-menu-logo">
+				<a class="pa-mobile-navbar-brand" href="{% url 'home'%}"><img alt="" src="{% static 'assets/images/waves24_logo_white.png'%}" style="transform:scale(1)"></a>
 			</li>
 
 			<!-- Regular Menu Items Start -->
@@ -35,12 +33,10 @@
 			</li>
 
 			<li class="nav-item menu-item-has-children">
-				<a class="nav-link hvr-underline-from-center" href="#">Events </a> 
+				<a class="nav-link hvr-underline-from-center" href="#">Events </a>
 				<ul class="pa-submenu-ul">
 					<li class="nav-item menu-item-has-children">
-						<!--%URL DEFINES THE URL NAME WHICH WOULD BE SPECIFIED IN THE PATH() IN URLS.PY FILE
-						AND THE NEXT ARGUEMENT IS THE SLUG FIELD TO THAT FUNCTION-->
-						<a class="nav-link" href="#">Tech Events</a> 
+						<a class="nav-link" href="#">Tech Events</a>
 						<ul class="pa-sub-submenu-ul">
 							<li><a class="nav-link" href="{% url 'events_by_category' 'tech-events'%}">All Tech</a></li>
 							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'circuit-craze'%}">Circuit (<em>Craze</em>)</a></li>
@@ -52,7 +48,7 @@
 						</ul>
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="#">Non Tech Events </a> 
+						<a class="nav-link" href="#">Non Tech Events </a>
 						<ul class="pa-sub-submenu-ul">
 							<li><a class="nav-link" href="{% url 'events_by_category' 'non-tech-events'%}">All Non-Tech </a></li>
 							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'k-mania'%}">K (<em>'mania</em>)</a></li>
@@ -72,8 +68,7 @@
 			<li class="nav-item menu-item-has-children">
 				<a class="nav-link hvr-underline-from-center" href="{% url 'events_by_category' 'workshop'%}">Workshops</a>
 				<ul class="pa-submenu-ul">
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'matlab'%}">
-						Matlab</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'matlab'%}">Workshop 1</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Workshop 2</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Workshop 3</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Workshop 3</a></li>
@@ -85,55 +80,61 @@
 				<a class="nav-link hvr-underline-from-center" href="{% if '/' == request.path %}#about-us{% else %}{% url 'home'%}#about-us{% endif %}">About Us </a>
 			</li>
 
-			<li class="nav-item menu-item-has-children">
-				<a class="nav-link hvr-underline-from-center" href="#">Miscellaneous</a>
-				<ul class="pa-submenu-ul">
-					<li class="nav-item"><a class="nav-link active" href="{% url 'misc'%}">All (<em>Miscellaneous</em>)</a></li>
-					<!--li class="nav-item"><a class="nav-link active"  href="{% if '/' == request.path %}#about-us{% else %}{% url 'home'%}#about-us{% endif %}">About Waves </a></li>
-					<li class="nav-item"><a class="nav-link" href="http://impulseseee.epizy.com/">Waves Magazine </a></li-->
-
-				</ul>
-			</li>
-
-			<li class="nav-item menu-item-has-children">
-				<a class="nav-link hvr-underline-from-center" href="#">Sponsers </a>
+			<li class="nav-item">
+				<a class="nav-link hvr-underline-from-center" href="{% url 'sponsers'%}">Sponsors </a>
 				<ul class="pa-submenu-ul">
 					<li class="nav-item"><a class="nav-link" href="{% url 'sponsers' %}">
-						Sponsers</a></li>
+						Sponsors</a></li>
 					<li class="nav-item"><a class="nav-link" href="{% url 'alumni' %}">Alumni Sponsorship</a></li>
 				</ul>
 			</li>
+			<li class="nav-item menu-item-has-children">
+				<a class="nav-link hvr-underline-from-center" href="{% url 'misc'%}">Miscellaneous</a>
+				<ul class="pa-submenu-ul">
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'misc'%}">All</a>
+
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'hackathon'%}">Hackathon'24</a>
+
+					</li>
+				</ul>
+			</li>
 
 			<li class="nav-item menu-item-has-children">
-				<a class="nav-link hvr-underline-from-center" href="#"><strong>The</strong> Team </a> 
+				<a class="nav-link hvr-underline-from-center" href="#"><strong>The</strong> Team </a>
 				<ul class="pa-submenu-ul">
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'seee-office-bearers'%}">SEEE office Bearers</a> 
-						
+						<a class="nav-link" href="{% url 'team' 'seee-office-bearers'%}">SEEE office Bearers</a>
+
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'tech-team'%}">Tech Team </a> 
-						
+						<a class="nav-link" href="{% url 'team' 'webdev-team'%}">WebDev Team </a>
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'non-tech-team'%}">Non Tech Team </a> 
-						
+						<a class="nav-link" href="{% url 'team' 'tech-team'%}">Tech Team </a>
+
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'workshop-team'%}">Workshop Team</a> 
-						
+						<a class="nav-link" href="{% url 'team' 'non-tech-team'%}">Non Tech Team </a>
+
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'accommodation-team'%}">Accomodation Team</a> 
-						
+						<a class="nav-link" href="{% url 'team' 'workshop-team'%}">Workshop Team</a>
+
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'hospitality-team'%}">Hospitality Team</a> 
-						
+						<a class="nav-link" href="{% url 'team' 'accommodation-team'%}">Accomodation Team</a>
+
 					</li>
 					<li class="nav-item menu-item-has-children">
-						<a class="nav-link" href="{% url 'team' 'logistics-team'%}">Logistics Team</a> 
-						
+						<a class="nav-link" href="{% url 'team' 'hospitality-team'%}">Hospitality Team</a>
+
+					</li>
+					<li class="nav-item menu-item-has-children">
+						<a class="nav-link" href="{% url 'team' 'logistics-team'%}">Logistics Team</a>
+
 					</li>
 				</ul>
 			</li>

@@ -1,7 +1,6 @@
 from django import forms
 from .models import Account
 
-
 class Registrationform(forms.ModelForm):
 
     password = forms.CharField(widget = forms.PasswordInput(attrs={
@@ -14,7 +13,7 @@ class Registrationform(forms.ModelForm):
     
     class Meta:
         model = Account#SPECIFYING THE MODEL FOR WHICH THE FORM IS USED
-        fields = ['first_name','last_name','phone_number','email','password']
+        fields = ['first_name','last_name','phone_number','email','password']#these fields are those that are stored in django admin model
 
     def __init__(self,*args,**kwargs):
         super(Registrationform,self).__init__(*args,**kwargs)

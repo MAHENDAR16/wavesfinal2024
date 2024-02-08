@@ -5,7 +5,66 @@
 <link rel="stylesheet" href = "{% static 'assets/css/glassmorphismgallery.css' %}">
 <link rel="stylesheet" href = "{% static 'assets/css/hobimp.css' %}">
 <script src="https://kit.fontawesome.com/fbf340fc9e.js" crossorigin="anonymous"></script>
+
+<style>
+
+	.theme{
+		margin-top:-190px;
+		font-size:3rem;
+	}
+	.theme-mobile{
+		visibility:hidden;
+	}
+	.logo_mainpage img{
+		margin-top: 250px;
+		transform: scale(0.6);
+	}
+	@media (max-width:1030px){
+		.theme-mobile{
+			visibility:visible;
+		}
+		.theme{
+			margin-top:10px;
+			visibility:visible;
+			font-size:0.7rem;
+		}
+		.mobile_backimage{
+			visibility:hidden;
+		}
+		.logo_mainpage{
+			margin-top:-50px;
+		}
+		.logo_mainpage img{
+
+			transform:scale(0.7);
+		}
+
+	}
+	@media (max-width:600px){
+		.theme-mobile{
+			visibility:visible;
+		}
+		.theme{
+			margin-top:30px;
+			visibility:visible;
+			font-size:0.7rem;
+		}
+		.mobile_backimage{
+			visibility:hidden;
+		}
+		.logo_mainpage{
+			margin-top:-50px;
+		}
+		.logo_mainpage img{
+
+			transform:scale(1);
+		}
+
+	}
+</style>
 <body class="pa-homepage">
+
+
 	<!-- Hero Section
 	================================================== -->
 	<section id="top" class="pa-hero pa-centered-section pa-full-height pa-image-back pushable-content">
@@ -16,35 +75,42 @@
 			<!--video class="pa-video" preload="none" poster="assets/video/hero-dark.jpg" autoplay="" loop="" muted="" playsinline="">
 				<source src="{% static 'assets/video/particle-video-light.mp4'%}" type="video/mp4">Your browser does not support HTML5 video.
 			</video-->
-			<img src="{%static 'assets/images/hero-dark.jpg' %}">
+			<img src="{%static 'assets/images/hero-dark.jpg' %}" class="mobile_backimage">
 		</div>
 		
-		<div class="container pa-hero-content text-center" >
+		<div class="container pa-hero-content text-center logo_mainpage">
 			<div class="row pa-hero-logo">
 				<div class="col-12">
+
 					<!--BELOW IMG IS WAVES LOGO-->
-					<img style="transform: scale(0.9); margin-top: 200px;" alt="" src="{% static 'assets/images/hero.png'%}">
-					<div id="particles-js"></div>
+					<img alt="" src="{% static 'assets/images/waves24_logo_white.png'%}">
+					<div id="particles-js">
+
+					</div>
+				</div>
+				<div class="col-12 theme">
+					<h1 style="color:white"><strong>WAVES'24 -- CIRCUIT CARNIVAL</strong></h1>
 				</div>
 			</div>
-			<div class="row pa-hero-typed-text pa-bright">
+			<!--div class="row pa-hero-typed-text pa-bright">
 				<div class="col-12">
 					<div class="typed-text">
 						<span style="background-color: none;"  class="animated-text-effect ">
-							<span class = "auto_type"></span>
+							<span class = "auto_type2"></span>
 						</span>
 					</div>
 				</div>
-			</div>
+			</div-->
 		</div>
+		<br>
 		<!--THE BELOW SCRIPT IS FOR TYPING TEXT-->
 		<script>
-		var typed = new Typed(".auto_type",{
-			strings:["May 5, 6, 7 2024!!!", "Signature Event of Department of EEE"],
-			typeSpeed : 60,
-			backSpeed : 60,
-			loop : true,
-		})
+			var typed = new Typed(".auto_type2",{
+				strings:["May 5, 6, 7 2024!!!", "Signature Event of Department of EEE"],
+				typeSpeed : 60,
+				backSpeed : 60,
+				loop : true,
+			});
 
 		</script>
 	</section>
@@ -59,10 +125,10 @@
 	<section style="background: rgba(0, 0, 0, 0.6);" class="pa-cta-v1" data-parallax="scroll" data-speed="0.2" data-image-src="{% static 'assets/images/1.jpg'%}">
 
 		<div class="container">
-			<h1 class="waves-head pa-h1-v1 pa-bright fadeInLeftDelay03Duration10 "><strong>WAVES 2022</strong></h1>
+			<h1 class="waves-head pa-h1-v1 pa-bright fadeInLeftDelay03Duration10 "><strong>WAVES 2024</strong></h1>
 			<h1 class="pa-h1-v1 pa-bright fadeInLeftDelay03Duration10"><strong><< Infinity Unravelled >> </strong></h1>
-			<h1 class="pa-h1-v1  pa-bright fadeInLeftDelay03Duration10"><strong>May 5,6 and 7 2022  </strong></h1>
-			<h4 class="pa-h4-v1  pa-bright fadeInLeftDelay03Duration10">A National Level Techo Management Symposium</h4>
+			<h1 class="pa-h1-v1  pa-bright fadeInLeftDelay03Duration10"><strong>April 2, 3 and 4 2024  </strong></h1>
+			<h4 class="pa-h4-v1  pa-bright fadeInLeftDelay03Duration10">A National Level Techno Management Symposium</h4>
 			<h4 class="pa-h4-v1  pa-bright fadeInLeftDelay03Duration10">From the Department Of EEE, College of Engineering Guindy</h4>
 			<div class="mt-4"></div>
 			<!-- <a class="pa-button-primary pa-hvr-sweep-to-right fadeInRightDelay11Duration10" href="https://themeforest.net/item/particle-modern-tech-startup-html-template/20078383?ref=Skilltech" target="_blank">Get it Now</a> -->
@@ -91,7 +157,7 @@
 			<div class="row pa-row-max2560">
 				<a href="{% url 'events_by_category' 'tech-events'%}">
 					<div class="col-12 col-sm-6 col-lg-4 p-0">
-						<div class="pa-portfolio-thumb m-0 text-center fadeInDelay00Duration10" style="background-image: url(/static/assets/images/portfolio-thumbnail-01-dark.jpg);">
+						<div class="pa-portfolio-thumb m-0 text-center fadeInDelay00Duration10" style="background-image: url(/static/assets/images/work-3.png);">
 							<div class="pa-portfolio-thumb-background-overlay"></div>
 							<div class="pa-portfolio-thumb-deco-1"></div>
 							<div class="pa-portfolio-thumb-deco-2"></div>
@@ -102,14 +168,14 @@
 								<a href="{% url 'events_by_category' 'tech-events'%}">
 									<h4 class="pa-portfolio-thumb-heading">Tech Events</h4>
 								</a>
-								<p class="pa-portfolio-thumb-desc">Waves 2022 </p>
+								<p class="pa-portfolio-thumb-desc">Waves 2024 </p>
 							</div>
 						</div>
 					</div>
 				</a>
 				<a href="{% url 'events_by_category' 'non-tech-events'%}">
 					<div class="col-12 col-sm-6 col-lg-4 p-0">
-						<div class="pa-portfolio-thumb m-0 text-center fadeInDelay00Duration10" style="background-image: url(/static/assets/images/portfolio-thumbnail-02-dark.jpg);">
+						<div class="pa-portfolio-thumb m-0 text-center fadeInDelay00Duration10" style="background-image: url(/static/assets/images/workshop-hero.jpg);">
 							<div class="pa-portfolio-thumb-background-overlay"></div>
 							<div class="pa-portfolio-thumb-deco-1"></div>
 							<div class="pa-portfolio-thumb-deco-2"></div>
@@ -120,7 +186,7 @@
 								<a href="{% url 'events_by_category' 'non-tech-events'%}">
 									<h4 class="pa-portfolio-thumb-heading">Non-Tech Events</h4>
 								</a>
-								<p class="pa-portfolio-thumb-desc">Waves 2022 </p>
+								<p class="pa-portfolio-thumb-desc">Waves 2024 </p>
 							</div>
 						</div>
 					</div>
@@ -128,7 +194,7 @@
 
 				<a href="{% url 'events_by_category' 'workshops'%}">
 					<div class="col-12 col-sm-6 col-lg-4 p-0">
-						<div class="pa-portfolio-thumb m-0 text-center fadeInDelay00Duration10" style="background-image: url(/static/assets/images/portfolio-thumbnail-03-dark.jpg);">
+						<div class="pa-portfolio-thumb m-0 text-center fadeInDelay00Duration10" style="background-image: url(/static/assets/images/work-2.png);">
 							<div class="pa-portfolio-thumb-background-overlay"></div>
 							<div class="pa-portfolio-thumb-deco-1"></div>
 							<div class="pa-portfolio-thumb-deco-2"></div>
@@ -139,7 +205,7 @@
 								<a href="{% url 'events_by_category' 'workshops'%}">
 									<h4 class="pa-portfolio-thumb-heading">Workshops</h4>
 								</a>
-								<p class="pa-portfolio-thumb-desc">Waves 2022 </p>
+								<p class="pa-portfolio-thumb-desc">Waves 2024 </p>
 							</div>
 						</div>
 					</div>
@@ -163,7 +229,7 @@
 			<div class="row">
 				<div class="col-12 col-xl-10 offset-xl-1">
 
-					<h1 class="pa-h1-v2 pa-bright fadeInDelay00Duration10"><strong>About</strong> WAVES 2022</h1>
+					<h1 class="pa-h1-v2 pa-bright fadeInDelay00Duration10"><strong>About</strong> WAVES 2024</h1>
 					<p class="pa-p-v1 pa-bright fadeInDelay03Duration10"><b>Waves</b>, the well renowned national level <em>techno management</em> symposium is being held every year and entices more than <strong>5000</strong> participants from around the globe.
 						 We are all set to bring off the refashioned 40th digital edition of WAVES.
 						 WAVES one of the most inquisitive event to be marked in the calendar. The accomplishment of events and workshops in an interim of <b>3 days</b> for the transcended minds is what makes our tagline a reality. <em>"Infinity Unravelled"</em>.
@@ -296,7 +362,7 @@
 							<h3>NSS UNIT-7</h3>
 							<p class="text-white">Worked as a volunteer in NSS during the first two years of my college, where we went on
 							manuals to clean beach, and went to a village to renovate its government school and we went on rallies.</p>
-							<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+							<!--a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a-->
 						</div>
 					</div>
 				</div>
@@ -307,7 +373,7 @@
 							<h3>NSS UNIT-7</h3>
 							<p class="text-white">Worked as a volunteer in NSS during the first two years of my college, where we went on
 							manuals to clean beach, and went to a village to renovate its government school and we went on rallies.</p>
-							<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+							<!--a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a-->
 						</div>
 					</div>
 				</div>
@@ -318,7 +384,7 @@
 							<h3>NSS UNIT-7</h3>
 							<p class="text-white">Worked as a volunteer in NSS during the first two years of my college, where we went on
 							manuals to clean beach, and went to a village to renovate its government school and we went on rallies.</p>
-							<a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+							<!--a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a-->
 						</div>
 					</div>
 				</div>
@@ -407,22 +473,21 @@
 	<section style="background: rgba(0, 0, 0, 0.7);" id="contact-us" class="pa-contact-us" data-parallax="scroll" data-speed="0" data-image-src="{% static 'assets/images/contact-back1.jpg'%}">
 
 		<div class="container">
-			<!-- Section Header -->
+
 			<div class="row text-center">
 				<div class="col-12 col-xl-10 offset-xl-1">
 					<h1 class="pa-h1-v2 pa-bright fadeInDelay00Duration10">Let's <strong>Connect</strong></h1>
-					<p class="pa-p-v1 pa-white fadeInDelay03Duration10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+					<!--p class="pa-p-v1 pa-white fadeInDelay03Duration10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p-->
 					<div class="pt-0 pt-sm-3 pt-md-3 pt-lg-4 pt-xl-5"></div>
 				</div>
 			</div>
-			<div class="row">
-				<!-- Contact Info -->
-				<div class="col-12 col-md-6 col-xl-5 offset-xl-1 pa-contact-info d-flex">
-					<div class="pa-glass pa-left">
+			<div class="container row d-flex justify-content-center">
+				<div class="col-lg-12 col-md-12 col-xl-5 offset-xl-1 pa-contact-info">
+					<div class="pa-glass">
 						<h1 class="pa-h1-v3 pa-bright fadeInDelay03Duration10">Contact <strong>Waves Team</strong></h1>
-						<p class="pa-p-v1 pa-white fadeInDelay03Duration10"><span><i class="material-icons">mail_outline</i></span>waves2022seee@gmail.com</p>
-						<p class="pa-p-v1 pa-white fadeInDelay06Duration10"><span><i class="material-icons">call</i></span>+7708396875 </p>
-						<p class="pa-p-v1 pa-white fadeInDelay10Duration10"><span><i class="material-icons">business</i></span>College of ENgineering Guindy</p>
+						<p class="pa-p-v1 pa-white fadeInDelay03Duration10"><span><i class="material-icons">mail_outline</i></span>waveseee2024@gmail.com</p>
+						<p class="pa-p-v1 pa-white fadeInDelay06Duration10"><span><i class="material-icons">call</i></span>+91 95155 47112 </p>
+						<p class="pa-p-v1 pa-white fadeInDelay10Duration10"><span><i class="material-icons">business</i></span>College of Engineering Guindy</p>
 						<p class="pa-p-v1 pa-white fadeInDelay10Duration10"><span><i class="material-icons">location_on</i></span>Anna University, Chennai-600025</p>
 						<div class="pa-social-section">
 							<h1 class="pa-h1-v3 pa-bright fadeInDelay03Duration10"><strong>Connect</strong> with us</h1>
@@ -430,16 +495,16 @@
 							<a class="pa-social-icons" href="#" target="_blank"><span class="fadeInDelay03Duration10"><i class="fa fa-behance"></i></span></a>
 							<a class="pa-social-icons" href="#" target="_blank"><span class="fadeInDelay03Duration10"><i class="fa fa-dribbble"></i></span></a>
 							<a class="pa-social-icons" href="#" target="_blank"><span class="fadeInDelay03Duration10"><i class="fa fa-instagram"></i></span></a>
-							<p class="pa-p-v1 pa-white pa-contact-lastline fadeInDelay03Duration10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+							<!--p class="pa-p-v1 pa-white pa-contact-lastline fadeInDelay03Duration10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p-->
 						</div>
 					</div>
 				</div>
-				<!-- Contact Form -->
-				<div class="col-12 col-md-6 col-xl-5 pa-contact-form d-flex justify-content-end">
+
+				<!--div class="col-12 col-md-6 col-xl-5 pa-contact-form d-flex justify-content-end">
 					<div class="pa-glass pa-right">
 						<h1 class="pa-h1-v3 pa-bright fadeInDelay03Duration10">Contact <strong>Us</strong></h1>
 
-						<!-- Preview Only Static Form -->
+
 						<form>
 							<div class="form-group">
 								<label for="the_name">Name</label>
@@ -457,12 +522,12 @@
 						</form>
 
 					</div>
-				</div>
+				</div-->
 			</div>
 		</div>
 
 	</section>
-	<!-- /.pa-contact-us -->
+
 </body>
 
 

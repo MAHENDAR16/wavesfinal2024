@@ -53,8 +53,6 @@ def payments(request):
             # orderproduct = OrderProduct.objects.get(id=orderproduct.id)
             # orderproduct.variations.set(product_variation)
             orderproduct.save()
-
-
             # Reduce the quantity of the sold products
             event = Event.objects.get(id=item.event_id)
             event.stock -= item.quantity
@@ -103,7 +101,7 @@ def place_order(request, total=0, quantity=0,):
     for register_item in register_items:
         total += (register_item.event.price * register_item.quantity)
         quantity += register_item.quantity
-    tax = (1 * total)/100
+    tax = (2 * total)/100
     grand_total = total + tax
 
     print(grand_total)
@@ -123,8 +121,8 @@ def place_order(request, total=0, quantity=0,):
         data.date_of_birth = request.POST.get('date_of_birth')
         data.college = request.POST.get('college')
         data.Department = request.POST.get('Department')
-        data.year = request.POST.get('year')
-        data.referral_code = request.POST.get('referral_code')
+        #data.year = request.POST.get('year')
+       # data.accomodation_required = request.POST.get('accomodation_required')
         data.order_total = grand_total
         data.payment_mode = request.POST.get('payment_mode')
         print("payment mode added")
@@ -157,7 +155,7 @@ def place_order(request, total=0, quantity=0,):
             'order_number' : order_number,
         }
         print(context)
-        return JsonResponse(context)
+        return JsonResponse(context)#WHERE DOES IT GO
 
     else:
         return JsonResponse({

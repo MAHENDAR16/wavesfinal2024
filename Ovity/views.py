@@ -14,3 +14,6 @@ def alumni(request):
 
 def miscellaneous(request):
     return render(request, 'gallery/miscellaneous.html')
+
+def hackathon(request):
+    return render(request, 'gallery/hackathon.html')

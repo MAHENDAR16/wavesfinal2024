@@ -1,0 +1,544 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<script src="https://kit.fontawesome.com/fbf340fc9e.js" crossorigin="anonymous"></script>
+	<!-- FOR SWIPPER IN IMAGE SLIDDER----------->
+	<link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+	<!-----------------ANIMATE ON SCROLL LIBRARY------------------->
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+	<!-------------------------------------------------------------------->
+	<link rel="stylesheet" href="{% static 'assets/accordian/css/styles.css'%}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+<style>
+	*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	background-color: #152238;
+}
+
+.main_desc{
+	margin-top: 20px;
+	padding: 20px 5px;
+	overflow: hidden;
+	width: 100%;
+}
+
+.main_desc h1{
+	text-align: center;
+	font-size: 3rem;
+	color:white;
+}
+
+.single_desc{
+	display: flex;
+	margin-top: 40px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.single_desc_left{
+	flex-basis: 100%;
+	border: 2px solid red;
+}
+.single_desc_right{
+
+	height: 440px;
+
+	background-color: rgba(255, 255 , 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+}
+.single_desc_right p, .right_r p{
+	font-size: 1.2rem;
+	font-weight: 300;
+
+}
+.single_desc_right:hover, .right_r:hover{
+	background-color: rgba(255, 255 , 255, 0.3);
+	transform: translateY(-10px);
+}
+
+.single_desc_right button, .right_r button{
+	font-size: 1.1rem;
+    color: #111;
+    background-color: #fff;
+    padding: 10px;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+    margin-top: 5px;
+}
+
+.single_desc_right button:hover, .right_r button:hover{
+	background-color: green;
+}
+
+.single_desc_right ul{
+
+	padding: 20px;
+	font-size: 1.3rem;
+}
+.single_desc_right ul li{
+	padding: 10px 0px;
+
+}
+hr{
+	height: 2px;
+
+	width: 95%;
+	margin:20px auto;
+	background-color: white;
+}
+
+.quote{
+	margin: 30px;
+	color: #fff;
+	font-weight: bold;
+}
+
+.round_desc{
+	margin-top: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.single_round{
+	display: flex;
+	align-items: center;
+	gap:20px;
+	justify-content: center;
+}
+
+.left_r{
+	height: 200px;
+	flex-basis: 25%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.left_r span{
+	font-size: 2rem;
+    color: #111;
+    background-color: #fff;
+    padding: 20px;
+    border:none;
+    cursor: pointer;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+}
+
+.right_r{
+	height: 200px;
+	flex-basis: 70%;
+	background-color: rgba(255, 255 , 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+.round_center{
+	width: 3px;
+	height: 200px;
+	background-color: white;
+}
+
+.team_st{
+	font-weight: normal;
+	margin: 20px auto;
+    font-size: 2.4rem;
+    position: relative;
+    text-align: center;
+    color: #fff;
+}
+.team_st::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height:3px;
+    background-color:#fff;
+    bottom:-10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation:animate 4s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+.alumni_group{
+	width:90%;
+	margin: 40px auto 40px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	gap:20px;
+
+}
+
+.single_team{
+	min-width: 270px;
+	backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	gap:14px;
+	padding: 20px;
+	font-size: 1.3rem;
+	color: #fff;
+	flex-direction: column;
+    background: rgba(255, 255 , 255, 0.1);
+   	border-radius: 20px;
+   	transition: 0.5s;
+}
+
+.single_team:hover{
+	transform: translateY(-15px);
+	background-color: rgba(255, 255, 255, 0.3);
+}
+.single_team img{
+	width: 270px;
+	height: 270px;
+	border-radius:20px;
+
+}
+/* -------------------------- STYLING FOR SLIDER IMAGES------------------------*/
+
+
+	.swiper{
+		height: 500px;
+		width: 90%;
+
+	}
+
+	.swiper-slide img{
+		width: 100%;
+		background-position: center;
+		background-size: cover;
+		height: 500px;
+	}
+
+	.swiper .swiper-button-prev, .swiper .swiper-button-next
+	{
+		color: white;
+	}
+
+	.swiper .swiper-button-prev:hover, .swiper .swiper-button-next:hover{
+		color: #152238;
+	}
+
+
+	.swiper .swiper-pagination-bullet-active{
+		background: white;
+		width: 20px;
+		border-radius: 10px;
+	}
+
+	.swiper .swiper-pagination-bullet-active:hover{
+		background: #152238;
+	}
+
+
+  /*---------------------------------------------------------------------------------*/
+
+@media only screen and (max-width:800px){
+	.single_desc{
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.swiper{
+		width: 400px;
+		height: 400px;
+	}
+	.swiper-slide img{
+		height: 400px;
+	}
+	.round_center{
+		width: 0;
+		height: 0;
+	}
+
+}
+
+@media only screen and (max-width:440px){
+
+	.swiper{
+		width: 300px;
+		height: 250px;
+	}
+	.single_desc_right p{
+		font-size: 0.8rem;
+	}
+	.swiper-slide img{
+		height: 250px;
+	}
+	.single_round{
+		flex-direction: column;
+	}
+	.left_r span{
+		font-size: 1.1rem;
+	}
+	.round_center{
+		width: 0;
+		height: 0;
+	}
+}
+
+@media only screen and (max-width:300px){
+
+	.swiper{
+		width: 200px;
+		height: 200px;
+	}
+
+
+	.swiper-slide img{
+		height: 200px;
+	}
+	.round_center{
+		width: 0;
+		height: 0;
+	}
+}
+
+
+</style>
+<body>
+	<div class="main_desc mt-5">
+		<div class="quote">
+
+			<h1>
+				<i class="fa-solid fa-quote-left"></i>
+				Hackathon on Sustainability, Climatic Change
+				<i class="fa-solid fa-quote-right"></i>
+			</h1>
+		</div>
+
+		<!--div class="quote">
+
+			<h1>
+				<i class="fa-solid fa-quote-left"></i>
+				Intern Opportunities for winners
+				<i class="fa-solid fa-quote-right"></i>
+			</h1>
+		</div-->
+		<div class="single_desc">
+			<div class="swiper">
+					<!--div class="swiper"-->
+						  <!-- Additional required wrapper -->
+						  <div class="swiper-wrapper">
+						    <!-- Slides/images -->
+						    <div class="swiper-slide"><img src = "{% static 'assets/images/building.jpg' %}"></div>
+						    <div class="swiper-slide"><img src = "{% static 'assets/images/building.jpg' %}"></div>
+						    <div class="swiper-slide"><img src = "{% static 'assets/images/building.jpg' %}"></div>
+
+						  </div>
+						  <!-- If we need pagination -->
+						  <div class="swiper-pagination"></div>
+
+						  <!-- If we need navigation buttons -->
+						  <div class="swiper-button-prev"></div>
+						  <div class="swiper-button-next"></div>
+
+						  <!-- If we need scrollbar -->
+						  <!--div class="swiper-scrollbar"></div>
+						</div-->
+					<!--/div-->
+			</div>
+
+
+		</div>
+		<div class="single_desc px-2">
+			<div class = "col-12 col-md-12 col-lg-6 single_desc_right">
+				<p class = "text-white">The United Nations defines sustainability as meeting the needs of the present without
+					compromising the ability of future generations to meet their own needs. We, at Waves'24,
+					believe it is so much more! Sustainable development necessitates finding novel solutions
+					to age-old problems: How do we solve the energy crisis? How do we eradicate hunger? How do we
+					protect our natural resources? If you've got answers, join the Waves'24 Sustainability Hackathon!
+					Analyze contemporary global challenges, innovate, experiment and showcase your cutting-edge
+					solutions. Your ideas have the power to change the world for the better!</p>
+			</div>
+			<div class = "col-12 col-md-12 col-lg-6">
+				<form action="" method="post" class="event_form">
+                    {% csrf_token %}
+                    <section class="accordion container popup-screen active">
+                    <div class="accordion__container popup-box">
+
+
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">What are the <b>Rounds</b> in Hackthon ? </h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+									<li>round one</li>
+									<li>round two</li>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">What are the <b>Rules</b> in Hackathon ?</h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+                                    <li>round one</li>
+									<li>round two</li>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">Contact </h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+                                	<b>person</b> 123456789
+                                </p>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">Date and Fees </h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+                                 Date :  <br>
+									Fee: ₹
+                                </p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn  btn-primary">
+                            <span class="text">Register</span>
+                            <i style="font-size: 25px; transform: translateY(5px);" class='bx bxs-chevrons-right'></i>
+                        </button>
+                    </div>
+
+
+                </section>
+                    </form>
+			</div>
+		</div>
+	</div>
+	<h1 class="team_st">OUR MENTORS</h1>
+	<div class="alumni_group">
+
+
+	      	<div class="single_team">
+	      		<img src="{% static 'assets/images/profile1.jpg' %}">
+	      		<h1>name</h1>
+	      		<p>designation</p>
+
+	      	</div>
+
+
+
+	      	<div class="single_team">
+	      		<img src="{% static 'assets/images/profile1.jpg' %}">
+	      		<h1>name</h1>
+	      		<p>designation</p>
+
+	      	</div>
+
+
+	</div>
+
+
+</body>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+	const swiper = new Swiper('.swiper', {
+	  // Optional parameters
+	  //direction: 'vertical',
+	  autoplay:{
+	  	delay:2500,
+	  	disableOnInteraction:false,
+	  },
+	  loop: true,
+
+	  // If we need pagination
+	  pagination: {
+	    el: '.swiper-pagination',
+	    clickable:true,//then only when we click the dots the imag moves
+	  },
+
+	  // Navigation arrows
+	  navigation: {
+	    nextEl: '.swiper-button-next',
+	    prevEl: '.swiper-button-prev',
+	  },
+
+	  // And if we need scrollbar
+	  //scrollbar: {
+	    //el: '.swiper-scrollbar',
+	  //},
+});
+</script>
+<script src="{% static 'assets/accordian/js/main.js'%}"></script>
+<!---------------------SCRIPT FOR REVEAL ON ANIMNATION-------------->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init(
+    	{
+
+  			mirror: false,
+    	});
+  </script>
+
+<!------------------------------------------------->
+
+{% endblock %}

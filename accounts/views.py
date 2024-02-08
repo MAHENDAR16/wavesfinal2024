@@ -29,8 +29,11 @@ import requests
 
 def register(request):
     form = Registrationform()
+    print(request.method)
     if request.method == "POST":
         form = Registrationform(request.POST)
+        print(form.is_valid())#makes sure that the value that we enter now are not already present
+
         if form.is_valid():
             first_name      = form.cleaned_data['first_name']
             last_name       = form.cleaned_data['last_name']
@@ -39,7 +42,8 @@ def register(request):
             password        = form.cleaned_data['password']
             username        = email.split('@')[0]
 
-            user = Account.objects.create_user(first_name=first_name,last_name=last_name,email=email,username=username,password=password)
+            user = Account.objects.create_user(first_name=first_name,last_name=last_name,email=email,username=username,
+                                               password=password)
             user.phone_number = phone_number
 
             # Making the waves id
@@ -65,7 +69,7 @@ def register(request):
           
 
             #USER ACTIVATION
-            '''current_site = get_current_site(request)
+            current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
             message = render_to_string('accounts/account_verification_email.html',{
                 'user': user,
@@ -77,8 +81,8 @@ def register(request):
             send_email = EmailMessage(mail_subject,message,to=[to_email])
             send_email.send()
 
-            return redirect('/accounts/login/?command=verification&email='+email)'''
-            return redirect('home')
+            return redirect('/accounts/login/?command=verification&email='+email)
+         #   return redirect('home')
         else:
             form = Registrationform()
     #data to frontend
@@ -173,6 +177,8 @@ def activate(request, uidb64, token):
 
 @login_required(login_url = 'login')
 def dashboard(request):
+    print("user id")
+    print(request.user.id)
     orders = Order.objects.order_by('-created_at').filter(user_id=request.user.id, is_ordered=True)
     orders_count = orders.count()
 

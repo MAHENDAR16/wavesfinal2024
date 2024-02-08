@@ -11,12 +11,14 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
+
 from smtplib import SMTP
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-#from decouple import Csv, config
-#from django.core.mail.backends import smtp
+
+from django.core.mail.backends import smtp
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-(uq))z!nvjp_xh$&13x+y$!k!-ewamxmy=e7q)lm^zf!n=b(^@'
+#SECRET_KEY = 'django-insecure-(uq))z!nvjp_xh$&13x+y$!k!-ewamxmy=e7q)lm^zf!n=b(^@'
+SECRET_KEY = config('key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = config('DEBUG',default=True, cast=bool)
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'category',
     'accounts',
     'my_orders',
@@ -96,8 +100,12 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': config('database_engine'),
+        'NAME': config('database_name'),
+        'USER': config('database_user'),
+        'PASSWORD': config('database_pass'),
+        'HOST': config('database_host'),
+        'PORT': config('database_port'), # default PostgreSQL port
     }
 }
 
@@ -150,7 +158,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-'''
+
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {
@@ -159,8 +167,10 @@ MESSAGE_TAGS = {
 
 
 #SMPT mail config
+EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT', cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)'''
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+
