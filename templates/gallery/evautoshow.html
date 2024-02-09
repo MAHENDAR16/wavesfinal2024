@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script src="https://kit.fontawesome.com/fbf340fc9e.js" crossorigin="anonymous"></script>
+<!-- FOR SWIPPER IN IMAGE SLIDDER----------->
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<style>
+    .single_desc{
+	display: flex;
+	margin-top: 40px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.single_desc_left{
+	flex-basis: 57%;
+	border: 2px solid red;
+}
+.single_desc_right{
+	flex-basis: 40%;
+	height: 500px;
+
+	background-color: rgba(255, 255 , 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(200px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    color: #fff;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+}
+.single_desc_right p{
+	font-size: 1.2rem;
+	font-weight: 300;
+
+}
+.single_desc_right:hover{
+	background-color: rgba(255, 255 , 255, 0.3);
+	transform: translateY(-10px);
+}
+
+.single_desc_right a{
+	font-size: 1.1rem;
+    color: #111;
+    background-color: #fff !important;
+    padding: 10px;
+    border:none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s;
+    margin-top: 5px;
+}
+
+.single_desc_right a:hover{
+	background-color: green;
+}
+
+hr{
+	height: 2px;
+
+	width: 95%;
+	margin:20px auto;
+	background-color: white;
+}
+/* -------------------------- STYLING FOR SLIDER IMAGES------------------------*/
+
+
+	.swiper{
+		height: 500px;
+		width: 57%;
+
+	}
+
+	.swiper-slide img{
+		width: 100%;
+		background-position: center;
+		background-size: cover;
+		height: 500px;
+	}
+
+	.swiper .swiper-button-prev, .swiper .swiper-button-next
+	{
+		color: white;
+	}
+
+	.swiper .swiper-button-prev:hover, .swiper .swiper-button-next:hover{
+		color: #152238;
+	}
+
+
+	.swiper .swiper-pagination-bullet-active{
+		background: white;
+		width: 20px;
+		border-radius: 10px;
+	}
+
+	.swiper .swiper-pagination-bullet-active:hover{
+		background: #152238;
+	}
+
+
+  /*---------------------------------------------------------------------------------*/
+
+@media only screen and (max-width:800px){
+	.single_desc{
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.swiper{
+		width: 400px;
+		height: 400px;
+	}
+	.swiper-slide img{
+		height: 400px;
+	}
+
+}
+
+@media only screen and (max-width:400px){
+
+	.swiper{
+		width: 300px;
+		height: 250px;
+	}
+	.single_desc_right p{
+		font-size: 0.8rem;
+	}
+	.swiper-slide img{
+		height: 250px;
+	}
+}
+
+@media only screen and (max-width:300px){
+
+	.swiper{
+		width: 200px;
+		height: 200px;
+	}
+
+
+	.swiper-slide img{
+		height: 200px;
+	}
+}
+
+</style>
+
+<div class="main_desc" style = "margin-top:100px;" >
+		<h1 class="text-white text-center"><span class = "auto_type"></span></h1>
+		<div class="single_desc">
+			<div class="swiper">
+					<!--div class="swiper"-->
+						  <!-- Additional required wrapper -->
+						  <div class="swiper-wrapper">
+						    <!-- Slides/images -->
+						    <div class="swiper-slide"><img src = "{% static 'assets/images/building.jpg' %}"></div>
+						    <div class="swiper-slide"><img src = "{% static 'assets/images/group.jpg' %}"></div>
+						    <div class="swiper-slide"><img src = "{% static 'assets/images/ev.jpg' %}"></div>
+
+						  </div>
+						  <!-- If we need pagination -->
+						  <div class="swiper-pagination"></div>
+
+						  <!-- If we need navigation buttons -->
+						  <div class="swiper-button-prev"></div>
+						  <div class="swiper-button-next"></div>
+
+						  <!-- If we need scrollbar -->
+						  <!--div class="swiper-scrollbar"></div>
+						</div-->
+					<!--/div-->
+			</div>
+
+			<div class="single_desc_right">
+				<h1>Ev AutoShow</h1>
+				<p>The running cost of an electric vehicle is much lower than an equivalent petrol or diesel vehicle. Electric vehicles use electricity to charge their batteries instead of using fossil fuels like petrol or diesel. Electric vehicles are more efficient, and that combined with the electricity cost means that charging an electric vehicle is cheaper than filling petrol or diesel for your travel requirements. Using renewable energy sources can make the use of electric vehicles more eco-friendly.</p>
+			</div>
+		</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+	var typed = new Typed(".auto_type",{
+		strings:["Ev AutoShow..."],
+		typeSpeed : 60,
+		backSpeed : 60,
+		loop : true,
+	})
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<script>
+	const swiper = new Swiper('.swiper', {
+	  // Optional parameters
+	  //direction: 'vertical',
+	  autoplay:{
+	  	delay:2500,
+	  	disableOnInteraction:false,
+	  },
+	  loop: true,
+
+	  // If we need pagination
+	  pagination: {
+	    el: '.swiper-pagination',
+	    clickable:true,//then only when we click the dots the imag moves
+	  },
+
+	  // Navigation arrows
+	  navigation: {
+	    nextEl: '.swiper-button-next',
+	    prevEl: '.swiper-button-prev',
+	  },
+
+	  // And if we need scrollbar
+	  //scrollbar: {
+	    //el: '.swiper-scrollbar',
+	  //},
+});
+</script>
+{% endblock %}
