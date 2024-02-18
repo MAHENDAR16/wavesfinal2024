@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from .views import waves_events,event_detail
+from .views import waves_events
+from .views import event_detail
 
 urlpatterns = [
 

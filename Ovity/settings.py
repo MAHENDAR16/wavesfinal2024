@@ -36,6 +36,9 @@ SECRET_KEY = config('key')
 DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
+    'localhost',
+    '172.235.17.63',
+    'waves.org.in',
 ]
 
 
@@ -148,7 +151,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     'Ovity/static',
 ]
-
+STATIC_ROOT = BASE_DIR/'static'
 # media files configurations
 
 MEDIA_URL = '/media/'
