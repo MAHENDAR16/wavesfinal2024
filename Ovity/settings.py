@@ -104,7 +104,7 @@ AUTH_USER_MODEL = 'accounts.Account'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'waves24_db',
+        'NAME': 'waves2024_db',
         'USER': 'postgres',
         'PASSWORD': 'admin',
         'HOST': 'localhost',
