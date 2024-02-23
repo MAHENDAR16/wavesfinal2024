@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-(uq))z!nvjp_xh$&13x+y$!k!-ewamxmy=e7q)lm^zf!n=b(^@
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = config('DEBUG',default=True, cast=bool)
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
@@ -104,11 +104,11 @@ AUTH_USER_MODEL = 'accounts.Account'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('database_name'),
-        'USER': config('database_user'),
-        'PASSWORD': config('database_pass'),
-        'HOST': config('database_host'),
-        'PORT': config('database_port'),
+        'NAME': 'waves24_db',
+        'USER': 'postgres',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
