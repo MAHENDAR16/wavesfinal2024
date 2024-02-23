@@ -37,7 +37,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    '172.235.17.63',
+    '172.235.15.193',
     'waves.org.in',
 ]
 
