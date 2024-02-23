@@ -103,12 +103,12 @@ AUTH_USER_MODEL = 'accounts.Account'
 
 DATABASES = {
     'default': {
-        'ENGINE': config('database_engine'),
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': config('database_name'),
         'USER': config('database_user'),
         'PASSWORD': config('database_pass'),
         'HOST': config('database_host'),
-        'PORT': config('database_port'), # default PostgreSQL port
+        'PORT': config('database_port'),
     }
 }
 
