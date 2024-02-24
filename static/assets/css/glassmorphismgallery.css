@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.mainc_gallery{
+  padding: 20px;
+  width: 95%;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 12;
+  position: relative;
+  border-radius: 25px;
+  margin: auto;  
+   overflow: hidden;
+}
+
+
+.mainc_gallery span, .s2{
+  display: block;
+
+    pointer-events: none;
+    /*when the below styling is used the small box can appear above the big box*/
+    /*position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+*/
+
+    
+}
+
+.s2::before{
+  content: '';
+    position: absolute;
+    top:-100px;
+    right:-100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    transform: translateY(-50%);
+    background: rgba(255, 255 , 255, 0.2);
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+}
+
+
+
+.s2::after{
+  content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    background: rgba(255, 255 , 255, 0.2);
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+}
+
+
+.mainc_gallery span::before{
+    content: '';
+    position: absolute;
+    top:-100px;
+    left:-100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    /*background: linear-gradient(300deg, #03a9f4 , #ff0058 );*/
+    background: rgba(255, 255 , 255, 0.2);
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+
+}
+
+.mainc_gallery span::after{
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    transition: .5s;
+    background: rgba(255, 255 , 255, 0.2);
+    
+    animation:animate 2s ease-in-out infinite;
+    box-shadow: 0 5px 15px rbga(0, 0, 0, 0.5);
+}
+
+@keyframes animate {
+    0%, 100%{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+.mainc_gallery .team_st{
+  font-weight: normal;
+  margin: 40px auto;
+    font-size: 2.4rem;
+    position: relative;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+}
+.mainc_gallery .team_st::before{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height:3px;
+    background-color:#fff;
+    bottom:-10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation:animate2 4s linear infinite;
+}
+
+@keyframes animate2{
+    0%{
+        width: 100px;
+    }
+    50%{
+        width: 200px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+.mainc_gallery .container_gallery{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 40px 20px 0 20px;
+}
+
+
+.mainc_gallery .container_gallery .box{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ padding-bottom: 50px;
+}
+
+.mainc_gallery .container_gallery .box .dream{
+  display: flex;
+  flex-direction: column;
+  width: 32.5%;
+}
+
+.mainc_gallery .container_gallery .box img{
+  width: 100%;
+  padding-bottom: 15px;
+  border-radius: 5px;
+  display: block;
+  transition:.4s;
+}
+.container_gallery img:hover{
+  filter: grayscale(90%);
+}
+
+.mainc_gallery .container_gallery .btn{
+  margin: 40px 0 70px 0;
+  background: #222;
+  padding: 15px 40px ;
+  border-radius: 5px;
+}
+
+.mainc_gallery .container_gallery .btn a{
+ color: #fff;
+ font-size: 1.2em;
+ text-decoration: none;
+ font-weight: bolder;
+ letter-spacing: 3px;
+}
+
+@media only screen and (max-width: 769px){
+    .mainc_gallery .container_gallery .box{
+   flex-direction: column;
+  }
+
+.mainc_gallery .container_gallery .box .dream{
+  width: 100%;
+}
+
+}
+
