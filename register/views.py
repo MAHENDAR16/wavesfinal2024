@@ -44,7 +44,7 @@ def cart(request,total=0,quantity=0,cart_items=None):
 
     return render(request,'register.html',context)
 
-
+@login_required(login_url='login')
 def add_cart(request, product_id):
     current_user = request.user
     event = Event.objects.get(id=product_id)  # get the product
