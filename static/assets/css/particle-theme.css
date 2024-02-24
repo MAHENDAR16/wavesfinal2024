@@ -635,6 +635,7 @@ nav a em {
 	.hc-nav-trigger {
 		right: 20px;
 		z-index: 9999;
+		transform:scale(3);
 	}
 
 	a.hc-nav-trigger.toggle-open {
@@ -644,10 +645,12 @@ nav a em {
 	.hc-nav-trigger:not(.toggle-open) {
 		width: 25px;
 		min-height: 25px;
+		transform:scale(3);
 	}
 
 	.hc-nav-trigger:not(.toggle-open) span {
 		width: 24px;
+		transform:scale(3);
 	}
 
 	.hc-nav-trigger span, 
@@ -838,7 +841,6 @@ nav a em {
  * Desktop Menu
  * ============
  */
-
 @media all and (min-width: 1200px) {
 
 	nav li a {
