@@ -206,7 +206,7 @@ def razorpaycheck(request):
     total_price = 0
     for item in registeritems:
         total_price = total_price + item.event.price * item.quantity
-
+    total_price += 0.02*total_price;
     return JsonResponse({
         'total_price': total_price
     })

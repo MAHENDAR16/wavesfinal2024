@@ -56,7 +56,8 @@ def register(request):
             waves_id = f'W{waves_number}'
 
             user.waves_id = waves_id
-
+            #if mail is not sent this shoudl be there
+            user.is_active = True
             user.save()
 
             # Create the Waves user profile
@@ -66,10 +67,10 @@ def register(request):
             profile.profile_picture = 'default/logo-dark.png'
             profile.save()
 
-          
+            return redirect('login')
 
             #USER ACTIVATION
-            current_site = get_current_site(request)
+            '''current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
             message = render_to_string('accounts/account_verification_email.html',{
                 'user': user,
@@ -81,7 +82,7 @@ def register(request):
             send_email = EmailMessage(mail_subject,message,to=[to_email])
             send_email.send()
 
-            return redirect('/accounts/login/?command=verification&email='+email)
+            return redirect('/accounts/login/?command=verification&email='+email)'''
          #   return redirect('home')
         else:
             form = Registrationform()
