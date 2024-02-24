@@ -635,7 +635,7 @@ nav a em {
 	.hc-nav-trigger {
 		right: 20px;
 		z-index: 9999;
-		transform:scale(3);
+		transform:scale(3.2);
 	}
 
 	a.hc-nav-trigger.toggle-open {
