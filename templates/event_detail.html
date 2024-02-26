@@ -19,7 +19,82 @@
 					</h2>
 				</div>
 			</div>
-            <div class="row mt-4 p-2" >
+
+
+            {% if single_event.category.slug == 'workshop' %}
+                <div class="row mt-4 p-2" >
+                <div class="col-12 col-md-12 col-lg-4 mb-2" >
+                    <img src = "{{single_event.image.url}}" style="border-radius:20px">
+                </div>
+                <div class="col-12 col-md-12 col-lg-8">
+                    <form action="{% url 'add_event' single_event.id %}" method="post" class="event_form">
+                    {% csrf_token %}
+                    <section class="accordion container popup-screen active">
+                    <div class="accordion__container popup-box">
+                        <a href="{% url 'events_by_category' single_event.category.slug %}"><i class="bx bx-x close-button"></i></a>
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">What is {{single_event.event_name}} ? </h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+                                {{single_event.description|safe|escape }}
+                                </p>
+                                <a href="{{single_event.poster.url}}" target="_blank" >
+                                    <button style="margin-left: 20px; margin-bottom: 20px; transform: scale(0.8);" type="button" class="btn btn-success">
+                                        <span class="text">View Poster</span>
+                                        <i style="font-size: 25px; transform: translateY(5px);" class='bx bxs-chevrons-right'></i>
+                                    </button>
+                                </a>
+
+
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">Contact </h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+                                {{single_event.contact|safe|escape}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="accordion__item">
+                            <header class="accordion__header">
+                                <i class='bx bx-plus accordion__icon'></i>
+                                <h3 class="accordion__title">Date and Fees </h3>
+                            </header>
+
+                            <div class="accordion__content">
+                                <p class="accordion__description">
+                                 Date : {{single_event.date|safe|escape}} <br>
+                                Fee: ₹ {{single_event.price|safe|escape}}
+                                </p>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn  btn-primary">
+                            <span class="text">Register</span>
+                            <i style="font-size: 25px; transform: translateY(5px);" class='bx bxs-chevrons-right'></i>
+                        </button>
+                    </div>
+
+
+                </section>
+                    </form>
+                </div>
+            </div>
+            {% else %}
+                <div class="row mt-4 p-2" >
                 <div class="col-12 col-md-12 col-lg-4 mb-2" >
                     <img src = "{{single_event.image.url}}" style="border-radius:20px">
                 </div>
@@ -113,6 +188,9 @@
                     </form>
                 </div>
             </div>
+            {% endif %}
+
+
         </div>
      <script src="{% static 'assets/accordian/js/main.js'%}"></script>
     </body>
