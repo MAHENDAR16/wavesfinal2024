@@ -61,20 +61,17 @@
     width: calc(100% - 100px);/*to change the width when hovered.*/
 }
 
-.gcontainer .sponsers_box:nth-child(1):before,
-.gcontainer .sponsers_box:nth-child(1):after{
+.gcontainer .sponsers_box:nth-child(even):before,
+.gcontainer .sponsers_box:nth-child(even):after{
     background: linear-gradient(315deg, #ffbc00, #ff0058);
 }
 
-.gcontainer .sponsers_box:nth-child(2):before,
-.gcontainer .sponsers_box:nth-child(2):after{
+.gcontainer .sponsers_box:nth-child(odd):before,
+.gcontainer .sponsers_box:nth-child(odd):after{
     background: linear-gradient(315deg, #03a9f4, #ff0058);
 }
 
-.gcontainer .sponsers_box:nth-child(3):before,
-.gcontainer .sponsers_box:nth-child(3):after{
-    background: linear-gradient(315deg, #4dff03, #ff0058);
-}
+
 
 .gcontainer .sponsers_box span{
     display: block;
@@ -266,9 +263,9 @@
         <div class="sponsers_box">
             <span></span>
             <div class="content">
-                <h2>Title Sponsor</h2>
-                <div class= "cover_i"><img src="{% static 'assets/images/waves24_logo_white.png' %}"></div>
-                <p>Lorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                <h2>T-Shirt Sponsor</h2>
+                <div class= "cover_i"><img src="{% static 'assets/images/sine.jpg' %}"></div>
+                <p>We are proud to announce Sinewaves as our official t-shirt sponsor.</p>
                 <button>Read More</button>
             </div>
         </div>
@@ -276,18 +273,46 @@
         <div class="sponsers_box">
             <span></span>
             <div class="content">
-                <h2>Title Sponsor</h2>
-                <div class=  "cover_i"><img src="{% static 'assets/images/waves24_logo_white.png' %}"></div>
-                <p>Lorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                <h2>Workshop Sponsor</h2>
+                <div class=  "cover_i"><img src="{% static 'assets/images/opalrt.png' %}"></div>
+                <p>We are proud to announce OpalRT as our workshop sponsor.</p>
                 <button>Read More</button>
             </div>
         </div>
         <div class="sponsers_box">
             <span></span>
             <div class="content">
-                <h2>Title Sponsor</h2>
-                <div class=  "cover_i"><img src="{% static 'assets/images/waves24_logo_white.png' %}"></div>
-                <p>Lorem Ipsum is simplydummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
+                <h2>Mini Sponsor</h2>
+                <div class=  "cover_i"><img src="{% static 'assets/images/pd.jpg' %}"></div>
+                <p>We are proud to announce PD-Technology as our official mini sponsor.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="sponsers_box">
+            <span></span>
+            <div class="content">
+                <h2>Printing Sponsor</h2>
+                <div class= "cover_i"><img src="{% static 'assets/images/struent.png' %}"></div>
+                <p>We are proud to announce Struent Semiconductors as our official printing sponsor.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+
+        <div class="sponsers_box">
+            <span></span>
+            <div class="content">
+                <h2>Printing Sponsor</h2>
+                <div class=  "cover_i"><img src="{% static 'assets/images/poorvika.png' %}"></div>
+                <p>We are proud to announce Poorvika as our official printing sponsor.</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="sponsers_box">
+            <span></span>
+            <div class="content">
+                <h2>Travel Sponsor</h2>
+                <div class=  "cover_i"><img src="{% static 'assets/images/fapler.jpg' %}"></div>
+                <p>We are proud to announce Fapler Marketing Technologies as our official travel partner.</p>
                 <button>Read More</button>
             </div>
         </div>

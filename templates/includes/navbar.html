@@ -8,7 +8,7 @@
 	================================================== -->
 	<a class="pa-mobile-main-logo" href="{% url 'home'%}"><img alt="" src="{% static 'assets/images/waves24_logo_white.png'%}" style="transform: scale(1.2); margin-top:10px;margin-left:10px"></a>
 
-	<nav id="main-nav" class="pa-menu navbar pa-navbar navbar-expand-lg navbar-dark bg-transparent static-top">
+	<nav id="main-nav" class="pa-menu navbar pa-navbar navbar-expand-lg navbar-dark bg-transparent static-top" style="z-index:10000">
 
 		<!-- Desktop Menu Logo -->
 		<a class="navbar-brand" href="{% url 'home'%}"><img style="height: 100px; width: 100px; margin-left: 20px; margin-top: 20px; transform: scale(1.2);" alt="" src="{% static 'assets/images/waves24_logo_white.png'%}"></a>
@@ -39,10 +39,11 @@
 						<a class="nav-link" href="#">Tech Events</a>
 						<ul class="pa-sub-submenu-ul">
 							<li><a class="nav-link" href="{% url 'events_by_category' 'tech-events'%}">All Tech</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'paper-presentation' %}">Paper Presentation</a></li>
 							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'linkify' %}">Linkify</a></li>
 							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'bit-battle' %}">Bit Battle</a></li>
 							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'code-fusion' %}">Code Fusion</a></li>
-							<!--li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'watt-works' %}">Watt Works</a></li-->
+							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'watt-works' %}">Watt Works</a></li>
 						</ul>
 					</li>
 					<li class="nav-item menu-item-has-children">
