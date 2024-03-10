@@ -39,25 +39,22 @@
 						<a class="nav-link" href="#">Tech Events</a>
 						<ul class="pa-sub-submenu-ul">
 							<li><a class="nav-link" href="{% url 'events_by_category' 'tech-events'%}">All Tech</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'linkify'%}">Linkify</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'bit-battle'%}">Bit Battle</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'code-fusion'%}">Code Fusion</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'techno-admad'%}">Techno Admad</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'techtempore'%}">Techtempore</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'the-lost-light'%}">The Lost Light</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'linkify' %}">Linkify</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'bit-battle' %}">Bit Battle</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'code-fusion' %}">Code Fusion</a></li>
+							<!--li><a class="nav-link" href="{% url 'event_detail' 'tech-events' 'watt-works' %}">Watt Works</a></li-->
 						</ul>
 					</li>
 					<li class="nav-item menu-item-has-children">
 						<a class="nav-link" href="#">Non Tech Events </a>
 						<ul class="pa-sub-submenu-ul">
-							<li><a class="nav-link" href="{% url 'events_by_category' 'non-tech-events'%}">All Non-Tech </a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'k-mania'%}">K (<em>'mania</em>)</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'jolly-a-gymkhana'%}">Jolly'a'(<em>gymkanna</em>)</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'ipl-auction'%}">Ipl auction</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'cipher'%}">Cipher</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'run-to-hunt'%}">Run to hunt</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'lo-fo'%}">Lo_fo</a></li>
-							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'shipwreck'%}">Shipwreck</a></li>
+							<li><a class="nav-link" href="{% url 'events_by_category' 'non-tech-events' %}">All Non-Tech </a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'joyful-junction' %}">Joyful Junction</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'naduvula-konjam-pakatha-kanom' %}">Naduvula Konjam Pakatha Kanom</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'fandom-conundrums' %}">Fandom Conundrums</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'beat-buzz' %}">Beat Buzz</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'lbw' %}">LBW</a></li>
+							<li><a class="nav-link" href="{% url 'event_detail' 'non-tech-events' 'bid-or-break' %}">Bid Or Break</a></li>
 						</ul>
 					</li>
 
@@ -66,15 +63,15 @@
 
 
 			<li class="nav-item menu-item-has-children">
-				<a class="nav-link hvr-underline-from-center" href="{% url 'events_by_category' 'workshop'%}">Workshops</a>
+				<a class="nav-link hvr-underline-from-center" href="{% url 'events_by_category' 'workshop' %}">Workshops</a>
 				<ul class="pa-submenu-ul">
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'relay-technology-for-future-grid'%}">Relay Technology</a></li>
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'control-systems-using-matlab%}">Control System</a></li>
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'substation-automation'%}">Substation Automation</a></li>
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'ai-smart-technology'%}">AI and Smart Technology </a></li>
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'cloud-computing'%}">Cloud Computing</a></li>
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'hands-on-with-opal-rt'%}">Opal-RT</a></li>
-					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'hands-on-with-scada-systems'%}">Scada Systems</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'relay-technology-for-future-grid' %}">Relay Technology</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'control-systems-using-matlab' %}">Control System</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'substation-automation' %}">Substation Automation</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'ai-smart-technology' %}">AI and Smart Technology </a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'cloud-computing' %}">Cloud Computing</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'hands-on-with-opal-rt' %}">Opal-RT</a></li>
+					<li class="nav-item"><a class="nav-link" href="{% url 'event_detail' 'workshop' 'hands-on-with-scada-systems' %}">Scada Systems</a></li>
 				</ul>
 			</li>
 
