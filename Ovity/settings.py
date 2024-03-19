@@ -39,6 +39,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '172.235.15.193',
     'waves.org.in',
+    '*',
 ]
 
 
